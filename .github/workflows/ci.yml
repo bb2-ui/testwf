@@ -1,0 +1,21 @@
+name: CI
+# ===== WORKFLOW VULNERABLE (cote VICTIME / Alice) =====
+# pull_request_target => execution dans le contexte du depot de base : secrets + token
+# en ecriture disponibles. On checkout le HEAD de la PR (code non fiable de Bob) puis on
+# l'EXECUTE (bash ci/build.sh). Le script de Bob tourne donc avec DEMO_SECRET dans l'env.
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      DEMO_SECRET: ${{ secrets.DEMO_SECRET }}     # secret canari, expose au code de la PR
+    steps:
+      - name: Checkout PR code (VULNERABLE)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}   # <-- code de l'attaquant
+      - name: Build
+        run: bash build.sh                              # <-- execute le code de l'attaquant
