@@ -1,7 +1,7 @@
 name: CI
 
 on:
-  pull_request_target
+  pull_request
 
 jobs:
   build:
@@ -12,6 +12,7 @@ jobs:
       - name: Checkout PR code (VULNERABLE)
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.pull_request.head.sha }}
           allow-unsafe-pr-checkout: true
       - name: Build
         run: bash build.sh
