@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DEMO_SECRET: ${{ secrets.DEMO_SECRET }}     # secret canari, expose au code de la PR
+      DEMO_SECRET2: AAAA     # secret canari, expose au code de la PR
     steps:
       - name: Checkout PR code (VULNERABLE)
         uses: actions/checkout@v4
