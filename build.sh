@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-echo "[poc] hello az"
+echo "[poc] hello orig"
