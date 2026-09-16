@@ -4,7 +4,8 @@ name: CI
 # en ecriture disponibles. On checkout le HEAD de la PR (code non fiable de Bob) puis on
 # l'EXECUTE (bash ci/build.sh). Le script de Bob tourne donc avec DEMO_SECRET dans l'env.
 on:
-  pull_request_target
+  pull_request_target:
+    types: [opened, synchronize, reopened]
 
 jobs:
   build:
